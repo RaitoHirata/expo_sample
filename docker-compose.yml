@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  expo_sample:
+    container_name: expo_sample
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/sample_user/my-app
+
+    ports:
+      - "19000:19000"
+      - "19001:19001"
+      - "19002:19002"
+    environment:
+      - REACT_NATIVE_PACKAGER_HOSTNAME=${LOCAL_IP_ADDR}
