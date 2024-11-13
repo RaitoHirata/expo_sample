@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y bash
 # アプリケーションのソースコードをコピー
 COPY package.json package-lock.json ./
 
+RUN npm install -g @expo/ngrok
+
 # 依存関係をインストール
 RUN npm install
-
-RUN npm install -g @expo/ngrok
 
 # アプリケーションのソースコードをコピー
 COPY . .
